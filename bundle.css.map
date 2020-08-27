@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../checkpoint.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n    import moment from 'moment';\n    export let checkpoint = {};\n    console.log(checkpoint);\n    const checkpointTime = moment(checkpoint.checkpoint_time).format('lll');\n</script>\n\n<style>@-webkit-keyframes appear {\n  0% {\n    opacity: 0;\n  }\n}\n@keyframes appear {\n  0% {\n    opacity: 0;\n  }\n}</style>\n\n<li class=\"mb-2 text-sm\">\n    <div class=\"flex items-center mb-1\">\n        <div\n            class=\"bg-indigo-600 rounded-full h-4 w-4 border-gray-200 border-2\n            z-10\" />\n        <div class=\"flex-1 ml-4 font-semibold\">\n            <div class=\"text-gray-500\">{checkpointTime}</div>\n        </div>\n    </div>\n    <div class=\"ml-8 font-semibold\">\n        <span>{checkpoint.status}</span>\n        -\n        <span>{checkpoint.message}</span>\n    </div>\n    <div class=\"ml-8\">{checkpoint.location}</div>\n</li>\n"
+  ],
+  "names": [],
+  "mappings": "AAOO,mBAAmB,qBAAO,CAAC,AAChC,EAAE,AAAC,CAAC,AACF,OAAO,CAAE,CAAC,AACZ,CAAC,AACH,CAAC,AACD,WAAW,qBAAO,CAAC,AACjB,EAAE,AAAC,CAAC,AACF,OAAO,CAAE,CAAC,AACZ,CAAC,AACH,CAAC"
+}
