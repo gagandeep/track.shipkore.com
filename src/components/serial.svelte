@@ -27,6 +27,8 @@
     }
 </script>
 
+<section class="text-gray-700 body-font">
+    <div class="container px-5 py-2 mx-auto flex flex-wrap items-top">
         <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
             <Checkpoints {checkpoints} />
         </div>
@@ -65,4 +67,5 @@
                 Analysis and more through tracking from our paid plans.
             </p>
         </form>
-
+    </div>
+</section>

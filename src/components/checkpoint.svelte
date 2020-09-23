@@ -1,8 +1,7 @@
 <script>
-    import moment from 'moment';
+    import moment from 'moment-timezone';
     export let checkpoint = {};
-    console.log(checkpoint);
-    const checkpointTime = moment(checkpoint.checkpoint_time).format('lll');
+    var tz = moment.tz.guess();
 </script>
 
 <style>
@@ -19,7 +18,12 @@
             class="bg-indigo-600 rounded-full h-4 w-4 border-gray-200 border-2
             z-10" />
         <div class="flex-1 ml-4 font-semibold">
-            <div class="text-gray-500">{checkpointTime}</div>
+            <div class="text-gray-500">
+                {moment
+                    .utc(checkpoint.checkpoint_time)
+                    .tz(tz)
+                    .format('lll')}
+            </div>
         </div>
     </div>
     <div class="ml-8 font-semibold">

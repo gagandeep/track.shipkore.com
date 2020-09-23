@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create a instance of axios to use the same base url.
 const axiosAPI = axios.create({
-    baseURL: 'http://localhost:8080/v1/', // it's not recommended to have this info here.
+    baseURL: 'https://graph.innerkore.com/v1/', // it's not recommended to have this info here.
 });
 
 // implement a method to execute all the request from here.
@@ -20,6 +20,7 @@ const apiRequest = (url, request) => {
 };
 
 export const TrackRequest = async (provider, waybill) => {
+
     let request = {
         query: `mutation Track($provider: String!, $waybill: String!) {
             track(provider: $provider, waybill: $waybill) {
@@ -45,6 +46,26 @@ export const TrackRequest = async (provider, waybill) => {
     try {
         let resp = await apiRequest('graphql', request);
         return { result: resp.data.data.track };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const GetAllProviders = async () => {
+    let request = {
+        query: `query AllProviders {
+                    bareship_provider {
+                        logo
+                        name
+                        slug
+                    }
+                }
+                `,
+        operationName: 'AllProviders',
+    };
+    try {
+        let resp = await apiRequest('graphql', request);
+        return resp.data.data.bareship_provider;
     } catch (error) {
         console.log(error);
     }
